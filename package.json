@@ -1,12 +1,11 @@
 {
   "name": "music",
   "version": "1.0.0",
-  "description": "wy-music pc",
-  "main": "index.js",
+  "description": "This is a music player",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start":"node api/node/index.js"
+    "start":"node api/node/server.js"
   },
   "dependencies": {
     "mime-types":"^2.1.20"
