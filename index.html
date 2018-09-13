@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 	<meta charset="UTF-8" />
 	<title>网易云音乐</title>
-	<link rel="icon" type="image/ico" href="./images/format.ico" />
-	<link rel="stylesheet" type="text/css" href="./css/font-awesome.min.css" />
-	<link rel="stylesheet" type="text/css" href="./css/index.css" />
-	<script type="text/javascript" src="./libs/jquery-3.1.1.min.js"></script>
+	<link rel="icon" type="image/ico" href="/src/images/format.ico" />
+	<link rel="stylesheet" type="text/css" href="/src/css/font-awesome.min.css" />
+	<link rel="stylesheet" type="text/css" href="/src/css/index.css" />
+	<script type="text/javascript" src="/src/libs/jquery-3.1.1.min.js"></script>
 </head>
+
 <body onselectstart="return false">
 	<!-- page_list 页面左侧歌单 -->
 	<div class="page_list">
@@ -58,7 +60,7 @@
 		<!-- 全屏小窗 -->
 		<div class="playlist_smallwindow clearfix">
 			<div class="poster" id="btnExpandPlayBox">
-				<img src="./images/temp_pic001.jpg" alt="" id="smallwindow_albumPic" />
+				<img src="./src/images/temp_pic001.jpg" alt="" id="smallwindow_albumPic" />
 				<div class="poster_hoverback"><i class="fa fa-expand" aria-hidden="true"></i></div>
 			</div>
 			<div class="info">
@@ -73,9 +75,10 @@
 	</div>
 	<!-- page_menu 页面顶部菜单 -->
 	<div class="page_menu clearfix">
-		<div class="menu_logo"><img src="./images/netease-logo.png" alt=""></div>
+		<div class="menu_logo"><img src="./src/images/netease-logo.png" alt=""></div>
 		<div class="menu_btngroups">
-			<a href="javascript:void(0);" class="btn backward"><i class="fa fa-angle-left" aria-hidden="true"></i></a><!--
+			<a href="javascript:void(0);" class="btn backward"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+			<!--
 			--><a href="javascript:void(0);" class="btn forward"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
 		</div>
 		<div class="menu_search">
@@ -94,7 +97,9 @@
 		<!-- 进度条 -->
 		<div class="playerbar_timeprogress">
 			<div class="progress" id="progress_box">
-				<div class="progress_cache" id="progress_cache"><!-- 缓冲条 --></div>
+				<div class="progress_cache" id="progress_cache">
+					<!-- 缓冲条 -->
+				</div>
 				<div class="progress_curbar" id="progress_bar">
 					<div class="curbar_arc" id="progress_arc"></div>
 				</div>
@@ -117,10 +122,10 @@
 	<!-- page_main 歌单：我喜欢的音乐 -->
 	<div class="page_main R_page" id="pageMain">
 		<div class="main_container">
-			<div class="listcontainer"> 
+			<div class="listcontainer">
 				<div class="listinfo clearfix">
 					<div class="info_listpic">
-						<img src="./images/temp_pic001.jpg" alt="" id="playlist_listPic" />
+						<img src="./src/images/temp_pic001.jpg" alt="" id="playlist_listPic" />
 					</div>
 					<div class="info_detailtext">
 						<div class="playinfo">
@@ -132,13 +137,14 @@
 							<span class="listname" id="playlist_listName">歌单名称</span>
 						</div>
 						<div class="detail_time">
-							<span class="userpic"><a href="javascript:void(0);"><img src="./images/user_face.png" alt="" id="playlist_userFace" /></a></span>
+							<span class="userpic"><a href="javascript:void(0);"><img src="./src/images/user_face.png" alt="" id="playlist_userFace" /></a></span>
 							<span class="username"><a href="javascript:void(0);" id="playlist_userName">user008</a></span>
 							<span class="createtime" id="playlist_createTime">1970-01-01</span>
 							<span>创建</span>
 						</div>
 						<div class="detail_btns">
-							<span class="btn playall"><i class="fa fa-play-circle-o" aria-hidden="true" style="color:#c52f30;"></i>&nbsp;&nbsp;播放全部</span><!--
+							<span class="btn playall"><i class="fa fa-play-circle-o" aria-hidden="true" style="color:#c52f30;"></i>&nbsp;&nbsp;播放全部</span>
+							<!--
 							--><span class="btn plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
 							<span class="btn playall"><i class="fa fa-folder" aria-hidden="true"></i>&nbsp;&nbsp;收藏(0)</span>
 							<span class="btn playall"><i class="fa fa-share-square-o" aria-hidden="true"></i>&nbsp;&nbsp;分享(0)</span>
@@ -174,8 +180,8 @@
 								<tr>
 									<td class="index">01</td>
 									<td><i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;
-				<i class="fa fa-download" aria-hidden="true"></i>
-				</td>
+										<i class="fa fa-download" aria-hidden="true"></i>
+									</td>
 									<td>-SONGNAME-</td>
 									<td>-SINGER-</td>
 									<td>-ALBUM-</td>
@@ -199,7 +205,9 @@
 							<div class="comment new">
 								<div class="title">最新评论(0)</div>
 								<div class="content">
-									<p><span class="username"><a href="javascript:void(0);">用户008</a></span>：<span class="usersay">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum, earum cupiditate facere suscipit tenetur quia ab quasi ea eligendi, neque esse quidem. Eius, quasi! Odit veniam repellat amet, accusamus voluptatem.</span></p>
+									<p><span class="username"><a href="javascript:void(0);">用户008</a></span>：<span class="usersay">Lorem ipsum
+											dolor sit amet, consectetur adipisicing elit. Laborum, earum cupiditate facere suscipit tenetur quia ab
+											quasi ea eligendi, neque esse quidem. Eius, quasi! Odit veniam repellat amet, accusamus voluptatem.</span></p>
 									<div class="btngroups clearfix">
 										<span class="time">2016年12月31日 10:35:06</span>
 										<span class="btn">
@@ -209,10 +217,11 @@
 											<a href="javascript:void(0);" class="btn_reply">回复</a>
 										</span>
 									</div>
-									<div class="userface"><a href="javascript:void(0);"><img src="./images/user_face.png" alt="" /></a></div>
+									<div class="userface"><a href="javascript:void(0);"><img src="./src/images/user_face.png" alt="" /></a></div>
 								</div>
 								<div class="content">
-									<p><span class="username"><a href="javascript:void(0);">用户008</a></span>：<span class="usersay">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</span></p>
+									<p><span class="username"><a href="javascript:void(0);">用户008</a></span>：<span class="usersay">Lorem ipsum
+											dolor sit amet, consectetur adipisicing elit.</span></p>
 									<div class="btngroups clearfix">
 										<span class="time">2016年12月31日 10:35:06</span>
 										<span class="btn">
@@ -222,7 +231,7 @@
 											<a href="javascript:void(0);" class="btn_reply">回复</a>
 										</span>
 									</div>
-									<div class="userface"><a href="javascript:void(0);"><img src="./images/user_face.png" alt="" /></a></div>
+									<div class="userface"><a href="javascript:void(0);"><img src="./src/images/user_face.png" alt="" /></a></div>
 								</div>
 							</div>
 							<div class="comment prefect">
@@ -237,15 +246,15 @@
 					<input type="radio" id="follower" name="tablist" />
 					<div class="tabitem followerlist">
 						<figure>
-							<a href="javascript:void(0);"><img src="./images/user_face.png" alt="" /></a>
+							<a href="javascript:void(0);"><img src="./src/images/user_face.png" alt="" /></a>
 							<figcaption><a href="javascript:void(0);">-USERNAME-</a></figcaption>
 						</figure>
 						<figure>
-							<a href="javascript:void(0);"><img src="./images/user_face.png" alt="" /></a>
+							<a href="javascript:void(0);"><img src="./src/images/user_face.png" alt="" /></a>
 							<figcaption><a href="javascript:void(0);">-USERNAME-</a></figcaption>
 						</figure>
 						<figure>
-							<a href="javascript:void(0);"><img src="./images/user_face.png" alt="" /></a>
+							<a href="javascript:void(0);"><img src="./src/images/user_face.png" alt="" /></a>
 							<figcaption><a href="javascript:void(0);">-USERNAME-</a></figcaption>
 						</figure>
 					</div>
@@ -257,7 +266,8 @@
 	<div class="page_search R_page" id="pageSearch" style="display:none;">
 		<div class="main_container">
 			<div class="listcontainer">
-				<p style="margin:20px 40px;color:#bbb;" id="search_count">搜索 "<span class="input" style="color:#0b75c3;">STRING</span>"，共搜到 <span class="count">0</span> 条结果，本页最多显示 100 条结果</p>
+				<p style="margin:20px 40px;color:#bbb;" id="search_count">搜索 "<span class="input" style="color:#0b75c3;">STRING</span>"，共搜到
+					<span class="count">0</span> 条结果，本页最多显示 100 条结果</p>
 				<div class="listtab">
 					<div class="tabbtns clearfix">
 						<label class="label_btn active" for="song">单曲</label>
@@ -287,8 +297,8 @@
 								<tr>
 									<td class="index">01</td>
 									<td><i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;
-				<i class="fa fa-download" aria-hidden="true"></i>
-				</td>
+										<i class="fa fa-download" aria-hidden="true"></i>
+									</td>
 									<td>-SONGNAME-</td>
 									<td>-SINGER-</td>
 									<td>-ALBUM-</td>
@@ -340,15 +350,15 @@
 	<!-- page_lyric 歌曲详情页 -->
 	<div class="page_songdetail" id="pageSongDetail">
 		<!-- 模糊背景 -->
-		<div class="g_blurbg" id="bgBlur" style="background-image:url('./images/al8.png');"></div>
+		<div class="g_blurbg" id="bgBlur" style="background-image:url('./src/images/al8.png');"></div>
 		<div class="maincontainer clearfix">
 			<div class="compressbtn" id="btnCompressPlayBox" title="收起音乐详情页">
 				<i class="fa fa-compress" aria-hidden="true"></i>
 			</div>
 			<div class="discsection">
-				<div class="disc_needle" id="discNeedle"><img src="./images/needle.png" alt=""></div>
-				<div class="disc_arc" id="bgDisc" style="background-image:url('./images/al8.png');">
-					<div class="poster"><img src="./images/disc-o.png" alt=""></div>
+				<div class="disc_needle" id="discNeedle"><img src="./src/images/needle.png" alt=""></div>
+				<div class="disc_arc" id="bgDisc" style="background-image:url('./src/images/al8.png');">
+					<div class="poster"><img src="./src/images/disc-o.png" alt=""></div>
 				</div>
 				<div class="disc_btns">
 					<span class="btn playall"><i class="fa fa-heart-o" aria-hidden="true"></i>&nbsp;&nbsp;喜欢</span>
@@ -383,19 +393,24 @@
 	<div class="g_backscreen" id="backScreen"></div>
 	<!-- tips box -->
 	<div class="g_tipsbox" id="tipsBox">
-		<p class="tip tip_error show"><i class="fa fa-times-circle" aria-hidden="true"></i>&nbsp;&nbsp;<span class="tiptext">ERROR STRING</span></p>
-		<p class="tip tip_info"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;&nbsp;<span class="tiptext">INFO STRING</span></p>
-		<p class="tip tip_ok"><i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp;&nbsp;<span class="tiptext">OK STRING</span></p>
+		<p class="tip tip_error show"><i class="fa fa-times-circle" aria-hidden="true"></i>&nbsp;&nbsp;<span class="tiptext">ERROR
+				STRING</span></p>
+		<p class="tip tip_info"><i class="fa fa-info-circle" aria-hidden="true"></i>&nbsp;&nbsp;<span class="tiptext">INFO
+				STRING</span></p>
+		<p class="tip tip_ok"><i class="fa fa-check-circle" aria-hidden="true"></i>&nbsp;&nbsp;<span class="tiptext">OK
+				STRING</span></p>
 	</div>
 	<!-- loading -->
 	<div class="g_loadingbox" id="loadingBox">
 		<i class="fa fa-spinner fa-spin fa-fw"></i>
-		<span class="loading_text"><!-- Loading... --></span>
+		<span class="loading_text">
+			<!-- Loading... --></span>
 	</div>
-<!-- scripts -->
-<script type="text/javascript" src="./js/index.js"></script>
-<script type="text/javascript" src="./js/lyricScroll.js"></script>
-<script type="text/javascript" src="./js/request.js"></script>
-<script type="text/javascript" src="./js/player.js"></script>
+	<!-- scripts -->
+	<script type="text/javascript" src="/src/js/index.js"></script>
+	<script type="text/javascript" src="/src/js/lyricScroll.js"></script>
+	<script type="text/javascript" src="/src/js/request.js"></script>
+	<script type="text/javascript" src="/src/js/player.js"></script>
 </body>
+
 </html>

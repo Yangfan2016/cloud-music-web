@@ -6,13 +6,15 @@ const fs = require("fs");
 const mime = require("mime-types");
 const requset = require("./tools/request.js");
 
-
+// config
 const SITE_ROOT_DIR = path.resolve(__dirname, "../../");
 const PORT = '9631';
 const staticReg = /\.\w+$/;
 const proxyReg = /^\/api/;
+
 // create httpserver
 const app = new http.Server();
+
 let requestListener = function (req, res) {
     let routePath = url.parse(req.url);
     let isStatic = staticReg.test(routePath.pathname);
@@ -68,9 +70,28 @@ let requestListener = function (req, res) {
     } else { // 路由
         // 需要代理
         if (isProxy) {
-            let target='http://music.163.com';
+            let target = 'http://music.163.com';
             let proxyPath = `${target}${routePath.path}`;
-            console.log(proxyPath);
+
+            requset.get({
+                url: proxyPath,
+                data: routePath.query
+            })
+                .then(function (d) {
+                    res.writeHead(200, {
+                        'Content-Type': 'application/json'
+                    });
+                    res.write(JSON.stringify(d));
+                    res.end();
+                })
+                .catch(function (r) {
+                    res.writeHead(504, {
+                        'Content-Type': 'text/plain'
+                    });
+                    res.write(r);
+                    res.end();
+                });
+
         } else {  // 不需要代理
             switch (routePath.pathname) {
                 case '/':
@@ -86,6 +107,7 @@ let requestListener = function (req, res) {
                     break;
                 default:
                     res.write('404 NOT FOUND');
+                    res.end();
                     break;
             }
         }
@@ -94,7 +116,6 @@ let requestListener = function (req, res) {
 
 };
 app.on("request", requestListener);
-
 app.listen(PORT);
 console.log(`http://localhost:${PORT}`);
 

@@ -1,11 +1,11 @@
 {
-  "name": "music",
+  "name": "cloud-music-pc",
   "version": "1.0.0",
   "description": "This is a music player",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start":"node api/node/server.js"
+    "start":"node server/node/server.js"
   },
   "dependencies": {
     "mime-types":"^2.1.20"

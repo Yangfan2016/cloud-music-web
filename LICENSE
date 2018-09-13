@@ -1,13 +1,3 @@
-## cloud-music-pc
-
-This is a music player
-
-### Post
-
-[网易云音乐播放器](https://yangfan2016.github.io/2017/02/18/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/)
-
-
-### MIT license
 Copyright (c) 2018 
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -27,7 +17,3 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-
----
-![docor]()
-built upon love by [docor](https://github.com/turingou/docor.git) v0.3.0
