@@ -7,7 +7,7 @@ const requset = require("./tools/request.js");
 
 // config
 const SITE_ROOT_DIR = path.resolve(__dirname, "../../");
-const PORT = '9631';
+const PORT = process.env.PORT || '9631';
 const staticReg = /\.\w+$/;
 const proxyReg = /^\/api/;
 
@@ -74,7 +74,12 @@ let requestListener = function (req, res) {
 
             requset.get({
                 url: proxyPath,
-                data: routePath.query
+                data: routePath.query,
+                headers: {
+                    'Referer': 'http://music.163.com/',
+                    'Cookie': "appver=1.5.0.75771",
+                    'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_9_2) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/33.0.1750.152 Safari/537.36',
+                }
             })
                 .then(function (d) {
                     res.writeHead(200, {
@@ -116,5 +121,5 @@ let requestListener = function (req, res) {
 };
 app.on("request", requestListener);
 app.listen(PORT);
-console.log(`http://localhost:${PORT}`);
+console.log(`The server is running at http://localhost:${PORT}`);
 

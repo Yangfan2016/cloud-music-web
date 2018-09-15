@@ -5,7 +5,7 @@
   "license": "MIT",
   "private": true,
   "scripts": {
-    "start":"node server/node/server.js"
+    "start":"set PORT=1234 && node server/node/server.js"
   },
   "dependencies": {
     "mime-types":"^2.1.20"

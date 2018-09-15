@@ -4,9 +4,9 @@
   *
   */
 
-var ROOT_PATH = '/music';
-function pathAbsolute(url) {
-	return ROOT_PATH + url;
+function getMusicUrl(id) {
+	if (!id) return;
+	return `http://music.163.com/song/media/outer/url?id=${id}`;
 }
 
 // create jsonp
@@ -28,7 +28,7 @@ function createJsonp(reqdata) {
 function requestAPI(req) {
 	$.ajax({
 		url: req.url,
-		type: req.method||"GET",
+		type: req.method || "GET",
 		data: req.data,
 		dataType: "json",
 		success: function (res) {
@@ -45,7 +45,7 @@ function searchRequest(str) {
 	// 搜索内容非空判断
 	if (!str) {
 		showTipBox("error", "不能为空哟！");
-	} else if (str === localStorage.getItem("searchString")) {
+	} else if (str === sessionStorage.getItem("searchString")) {
 		// 避免重复请求
 		showTipBox("error", "重复请求了！");
 	} else {
@@ -94,7 +94,7 @@ function searchRequest(str) {
 			}
 		});
 	}
-	localStorage.setItem("searchString", str);
+	sessionStorage.setItem("searchString", str);
 }
 // 刷新DOM tbody
 function refreshDOM(songLen) {
@@ -103,7 +103,7 @@ function refreshDOM(songLen) {
 		$songDetail = $("#songDetail"); // 歌曲详情页信息
 
 	// 更新数据 歌曲数量
-	localStorage.setItem("songLen", songLen);
+	sessionStorage.setItem("songLen", songLen);
 	// 初始化播放资源
 	$(media).attr("src", tr.dataset.audio);
 	// 暂停播放
@@ -119,25 +119,25 @@ function refreshDOM(songLen) {
 	$("#smallwindow_singerName").html(tr.dataset.singerName);
 
 	// 储存当前歌曲必要信息
-	localStorage.setItem("curPlayInfo_songID", tr.dataset.id);
-	localStorage.setItem("curPlayInfo_songName", tr.dataset.songName);
-	localStorage.setItem("curPlayInfo_singersName", tr.dataset.singerName);
-	localStorage.setItem("curPlayInfo_albumName", tr.dataset.albumName);
-	localStorage.setItem("curPlayInfo_albumPic", tr.dataset.albumPic);
-	localStorage.setItem("curPlayInfo_audioSrc", tr.dataset.audio);
+	sessionStorage.setItem("curPlayInfo_songID", tr.dataset.id);
+	sessionStorage.setItem("curPlayInfo_songName", tr.dataset.songName);
+	sessionStorage.setItem("curPlayInfo_singersName", tr.dataset.singerName);
+	sessionStorage.setItem("curPlayInfo_albumName", tr.dataset.albumName);
+	sessionStorage.setItem("curPlayInfo_albumPic", tr.dataset.albumPic);
+	sessionStorage.setItem("curPlayInfo_audioSrc", tr.dataset.audio);
 
 	// 刷新歌曲详情页bg和poster
 	$("#bgBlur").css({
-		"backgroundImage": 'url("' + localStorage.getItem('curPlayInfo_albumPic') + '")'
+		"backgroundImage": 'url("' + sessionStorage.getItem('curPlayInfo_albumPic') + '")'
 	});
 	$("#bgDisc").css({
-		"backgroundImage": 'url("' + localStorage.getItem('curPlayInfo_albumPic') + '")'
+		"backgroundImage": 'url("' + sessionStorage.getItem('curPlayInfo_albumPic') + '")'
 	});
 
 	// 刷新歌曲基本信息
-	$songDetail.find(".songname").html(localStorage.getItem('curPlayInfo_songName'));
-	$songDetail.find(".albumname").html(localStorage.getItem('curPlayInfo_singersName'));
-	$songDetail.find(".singersname").html(localStorage.getItem('curPlayInfo_albumName'));
+	$songDetail.find(".songname").html(sessionStorage.getItem('curPlayInfo_songName'));
+	$songDetail.find(".albumname").html(sessionStorage.getItem('curPlayInfo_singersName'));
+	$songDetail.find(".singersname").html(sessionStorage.getItem('curPlayInfo_albumName'));
 
 	// 生成歌词
 	createScrollLrc();
@@ -146,9 +146,9 @@ function refreshDOM(songLen) {
 // 生产滚动歌词
 function createScrollLrc() {
 	// 获取歌词
-	var songID = localStorage.getItem("curPlayInfo_songID");
+	var songID = sessionStorage.getItem("curPlayInfo_songID");
 	// 避免重复请求
-	if (!localStorage.getItem("lyric-" + songID)) {
+	if (!sessionStorage.getItem("lyric-" + songID)) {
 		// 请求歌词信息
 		requestAPI({
 			url: "/api/song/lyric",
@@ -162,9 +162,9 @@ function createScrollLrc() {
 			callback: function (data) {
 				console.log(data.nolyric);
 				// 判断是否有歌词
-				if (!data.nolyric) {
+				if (!data.nolyric && data.lrc) {
 					// 储存歌词
-					localStorage.setItem("lyric-" + songID, data.lrc.lyric);
+					sessionStorage.setItem("lyric-" + songID, data.lrc.lyric);
 					// 生成滚动歌词
 					mainLrcScroll({
 						"jQ_lrcContainer": $("#lrcContainer"),
@@ -184,7 +184,7 @@ function createScrollLrc() {
 			"jQ_lrcContainer": $("#lrcContainer"),
 			"jQ_lrcBox": $("#lrcBox"),
 			"jQ_audio": $("#audio"),
-			"str": localStorage.getItem("lyric-" + songID),
+			"str": sessionStorage.getItem("lyric-" + songID),
 		});
 		console.log("本地歌词");
 	}
@@ -223,7 +223,7 @@ function initPlaylist(data) {
 		tr.dataset.songName = tracks[i]['name'];
 		tr.dataset.duration = tracks[i]['duration'];
 		tr.dataset.durationFormat = timeObj.I + ":" + timeObj.S;
-		tr.dataset.audio = tracks[i]['mp3Url'];
+		tr.dataset.audio = tracks[i]['mp3Url'] || getMusicUrl(tracks[i]['id']);
 		tr.dataset.singerName = allSinger;
 		tr.dataset.albumName = tracks[i]['album']['name'];
 		tr.dataset.albumPic = tracks[i]['album']['picUrl'];

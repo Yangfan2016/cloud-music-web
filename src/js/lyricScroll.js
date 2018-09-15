@@ -97,7 +97,7 @@ function mainLrcScroll(data) {
 	// srcoll
 	var isScroll=true, // 是否允许滚动
 	 	curIndex=-1; // flag
-	localStorage.setItem("curLine",0); // 存储当前行
+	sessionStorage.setItem("curLine",0); // 存储当前行
 
 	/**
 	  * @Theme: 歌词滚动
@@ -145,7 +145,7 @@ function mainLrcScroll(data) {
 			if (Math.abs(_this.currentTime-item.dataset.timepoint)<=1) {
 				$(item).addClass("current").siblings().removeClass("current");
 				jQ_moveLrc(index);
-				localStorage.setItem("curLine",index);
+				sessionStorage.setItem("curLine",index);
 			}
 		});
 	});
