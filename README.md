@@ -1,4 +1,4 @@
-## cloud-music-pc
+## cloud-music-web
 
 This is a music player
 
@@ -24,6 +24,23 @@ $ npm start
 [博客-网易云音乐播放器](https://yangfan2016.github.io/2017/02/18/%E7%BD%91%E6%98%93%E4%BA%91%E9%9F%B3%E4%B9%90%E6%92%AD%E6%94%BE%E5%99%A8/)
 
 ### Intro
+
+功能  
+- 播放歌曲、暂停歌曲  
+- 切换歌曲  
+- 调节音量  
+- 调节进度条  
+- 搜索歌曲  
+- 歌词滚动
+- 指定歌单播放（目前是使用的“我喜欢的歌曲”这个歌单）
+
+技术栈  
+- 前台：`Javascript`+`jQuery`+`HTML`+`CSS`  
+- 后台：`Nodejs`
+
+缓存
+- 利用`sessionStorage` 存储歌曲基本信息和歌词
+
 
 原先用的php做的请求代理`server/php/index.php`，现在用nodejs重写了代码作为服务代理，详情`server/node/server.js`
 
