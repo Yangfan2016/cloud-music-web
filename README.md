@@ -7,8 +7,8 @@ This is a music player
 ### Run
 
 ```bash
-$ yarn | cnpm i
-$ npm start
+$ yarn
+$ yarn start
 ```
 然后打开浏览器输入 http://localhost:9631  
 > ##### 或者可以到`package.json` 里自定义端口，将 `set PORT=XXXX` 的 `XXXX` 改为你自己想要的端口即可，然后重新执行下 `npm start`
